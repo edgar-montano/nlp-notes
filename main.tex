@@ -34,6 +34,28 @@ Natural language processing notes
 \subsection{Nondeterministic FSAs}
 \paragraph{Automata with decision points are called \textbf{non-deterministic FSAs}. }
 
+
+\section{Chomsky Normal Form}
+\par{Cannot have more then two non-terminals on the right hand side}
+\par{Rules:}
+\par{if A -> B then we can rewrite this as A->XY and B->XY}
+\par{To remove a production A-> BCDE, we can do the following: we keep the 1st variable constant and replace the last variables: so A-> BCDE, can be broken down to A->BX, X->CY, Y->DE}
+\par{To remove rules where the right side constists of more than one terminal: To remove a production A->ab, we replace b with another variable: A-> aU, U->b}
+\par{Remove rules where the right side consists of 1 variable and 1 terminal with 2 variables: A-> aU , G-> a, so A-> GU, and G->a}
+\begin{itemize}
+\item \textbf{Step 1}: make sure start symbol does not appear on righthand side
+\item \textbf{Step 2:} remove rules Like A -> $\epsilon$
+\item \textbf{Step 3:} get rid of all unit rules A-> B
+\item \textbf{Step 4:} Get Rid of rules with more then 2 symbols on right hand side. 
+\item \textbf{Step 5:} make sure only 2 must be variables(non terminals) if only one, it has to be non-terminal symbol. 
+
+\end{itemize}
+
+\section{tf idf}
+\par{TF: Term frequency: measures how much freuqntly a term occurs in a document. $TF(t) = \frac{number of times term t appears in a doc}{total number of terms in the document}$}
+\par{IDF: inverse document frequency: measures how important a term is.  $idf(t) = log_e(\frac{total number of documents}{number of documents with term t in it}$}
+
+
 \section{Notes}
 \subsection{Defininig Computational Linguistics}
 \par{Definition: Study of how to solve problems involving the interpretation and generation of human language text and speech.}
@@ -73,8 +95,28 @@ Language AB = 1 or more a, followed by 1 or more b, e.g. ab, aab, abb, aaaaaaabb
 \subsection{RegExp}
 \par{}
 
-\subsection{Finite State Automata}
+\subsection{Probabilisitc Assumptions of HMM Tagging}
+\par{$P(x|y) = \frac{P(y|x)P(x)}{P(y)}$}
 
+\subsection{TF-IDF}
+\par{Term Frequency x Inverse Document Frequency}
+\par{TF = frequency of term in corpus}
+\par{IDF = num of docs / num of docs containing term}
+\par{Example: 100 documents, 100 instances of word cat: if each in  a different doc: 100 x 100 / 100 = 100}
+\par{inverse document frequency: reciprocal of portion of large document set that contain term t, normalized with log function: $log(\frac{NumberOfDocuments}{NumberOfDocumentsContantaining(T)})$}
+\par{coconut milk, occurs 3 times. term frequency = 3. occurs in 4 out of 10, 000 documents in collection. inverse document frequency = $log(10,000/4) = 7.82$}
+\par{$tfidf = 3 * 7.82 = 23.46$}
+
+\subsection{Cosine Similarity: Common Similarity Score}
+\par{$Similarity(A,B) = \frac{\Sigma_i a_i x b_i}{\sqrt[]{\Sigma_i (ai)^2 x \Sigma_i (bi)^2} }$}
+
+\subsection{What is a named entity?}
+\par{Definition 1: a single or multi-word expression that meets any of the following criteria: is a proper noun phrase, is a proper adjective phrase, has external distribution of NP, but different internal structure}
+\par{Definition 2: a class of words and multi-word expressions defined by specifications tuned to information extraction tasks (can conflict with 1 by including normal nouns) }
+
+\subsection{Reference Resolution}
+\par{Anaphora: is a word phrase that refers back to another phrase: the antecedent of the anaphor: Mary thought that she lost her keys.}
+\par{cataphora (less common): a cataphor is a word/phrase that refers forward to another phrase: its precdent: She was at NYU, when Mary realized that she lost her keys}
 
 
 
