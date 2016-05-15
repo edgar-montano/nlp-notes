@@ -1,0 +1,82 @@
+\documentclass[a4paper]{article}
+
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[margin=1.2in]{geometry}
+\usepackage{listings}
+\usepackage{mathtools}
+
+\title{Natural Language processing}
+\author{Edgar Montano}
+\date{4 - 24 - 2016}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Natural language processing notes
+\end{abstract}
+
+\section{Regular Expressions and Automata (ch 2)}
+\paragraph{Regular expression is used for specifying text strings in situation like web searches, also plays an important role in word processing, computation of frequencies from corpora, and other such tasks}
+\paragraph{A string is a sequence of symbols, for the purpose of most text-based search techniques}
+\paragraph{Regular expressions search require a \textbf{pattern} we want to search for, and a \textbf{corpus} of text to search through.  }
+\subsection{Finite State Automata}
+\paragraph{FSA are theoretical foundation of a good deal of the computational work, any regular expression can be implemented as a finite-state automaton.}
+\paragraph{A regular expression is one way of characterizing a particular kind of formla language called a \textbf{regular language.} Both regular expressions and finite-state-automata can be used to describe regular languages. }
+\paragraph{A \textbf{deterministic} algorithm is one that has no choice points. The algorithm always knows what to do for any input.  }
+\paragraph{A \textbf{formal language} is a set of strings, each string composed of symbols from a finite symbol-set called an \textbf{alphabet}. }
+\paragraph{Formal languages are not the same as \textbf{natural languages}, which are kind of languages that real people speak. }
+\paragraph{The term \textbf{generative grammar }is sometimes used in linguistics to mean grammar of a formal language; the origin of the term is this use of an automaton to define a langauge by generating all possible strings. }
+\subsection{Nondeterministic FSAs}
+\paragraph{Automata with decision points are called \textbf{non-deterministic FSAs}. }
+
+\section{Notes}
+\subsection{Defininig Computational Linguistics}
+\par{Definition: Study of how to solve problems involving the interpretation and generation of human language text and speech.}
+\subsection{Role of manual annotation}
+\par{Popular but imperfect measurement of agreement: $kappa = \frac{Percent(Actual Agreement) - Prob(chance of Agreement)}{1-Prob(chance Agreement)}$}
+\par{Used to create answer keys to score system output, one  set of measures are: recall, precision and f-score: }
+\par{$recall = \frac{|correct|}{|answer key|}$}
+\par{$precision = \frac{|correct|}{|system output|}$}
+\par{$f-score = \frac{1}{\frac{1}{2} * ( \frac{1}{precision} + \frac{1}{recall}  ) }$}
+
+\subsection{Formal Grammar}
+\par{A formal grammar defines a formal language}
+A formal grammar consists of:
+\begin{itemize}
+\item \textbf{N}: a finite set of nonterminal symbols
+\item T: a finite set of terminal symbols
+\item R: a set of rewrite rules, XYZ -> abXzY
+\item S: A special nonterminal that is the start symbol
+\end{itemize}
+
+
+\subsubsection{A simple example of a formal grammar}
+Language AB = 1 or more a, followed by 1 or more b, e.g. ab, aab, abb, aaaaaaabb, etc.
+\begin{itemize}
+\item N = \{A,B\}
+\item T = \{a,b\}
+\item S = $\Sigma$
+\item R = \{A->a, A->Aa, B->b, B->Bb, $\Sigma$->AB\}
+\end{itemize}
+
+\subsection{The Chomsky Hierarchy: Type 0 and 1}
+\par{Type 0: No restrictions on rules}
+\par{Type 1: Context-sensitive rules}
+\par{Example: DUCK DUCK DUCK -> DUCK DUCK GOOSE. means convert DUCK to a GOOSE if preceded by 2 ducks}
+\par{Complexity of recognizer for languages: $type 0 = expotential, type 1 = polynomial, type 2 = O(n^3) type 3 = O(nlogn)$s}
+
+\subsection{RegExp}
+\par{}
+
+\subsection{Finite State Automata}
+
+
+
+
+
+\end{document}
